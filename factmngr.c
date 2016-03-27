@@ -1542,11 +1542,11 @@ globle void *EnvAssertString(
    int danglingConstructs;
    danglingConstructs = ConstructData(theEnv)->DanglingConstructs;
 
-   if ((theFact = StringToFact(theEnv,theString)) == NULL) return(NULL);
+  if ((theFact = StringToFact(theEnv,theString)) == NULL) return(NULL);
    
-   if ((! CommandLineData(theEnv)->EvaluatingTopLevelCommand) &&
-       (EvaluationData(theEnv)->CurrentExpression == NULL))
-     { ConstructData(theEnv)->DanglingConstructs = danglingConstructs; }
+  if ((! CommandLineData(theEnv)->EvaluatingTopLevelCommand) &&
+      (EvaluationData(theEnv)->CurrentExpression == NULL))
+    { ConstructData(theEnv)->DanglingConstructs = danglingConstructs; }
 
    return((void *) EnvAssert(theEnv,(void *) theFact));
   }
